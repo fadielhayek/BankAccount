@@ -1,0 +1,53 @@
+import javax.swing.JOptionPane;
+
+public class BankApp {
+
+    public static void main(String[] args){
+    	BankAccount acct1;
+        String name;          //name for account
+        int aNum;
+        String saNum;         //acct num, user string input
+        double bal;
+        String sbal;          // balance,user string input
+        int choice;
+        double inAmt; 
+        
+        
+                             //get info for first account
+        name = JOptionPane.showInputDialog("Enter name for first account");
+        saNum = JOptionPane.showInputDialog("Enter acct number ");  
+        sbal = JOptionPane.showInputDialog("Enter initial balance");
+                   
+                              //make numerical conversions
+        aNum = Integer.parseInt(saNum);
+        
+        bal = Double.parseDouble(sbal);
+        
+        acct1 = new BankAccount(aNum, bal, name);
+        
+        
+                             //user enters 1 for deposit
+                             //user enters 2 for withdraw
+                             //user enters 3 for balance check
+                             
+        choice = Integer.parseInt(JOptionPane.showInputDialog("Enter 1,2,3"));
+        
+        switch(choice ) {
+             case 1:
+               do{  
+                 inAmt = Double.parseDouble(JOptionPane.showInputDialog("Enter deposit amount "));
+                 if (inAmt < 0)
+                     JOptionPane.showMessageDialog(null, "Invalid amount, please reenter");
+               } while ( inAmt < 0); 
+               acct1.makeDeposit(inAmt); 
+               break;
+                       
+        	
+        }  
+        
+        
+        acct1.display();;
+        
+    	
+    }
+}
