@@ -1,0 +1,38 @@
+import javax.swing.JOptionPane;
+
+public class BankAccount {
+
+     private double balance;       // this customer's balance
+     private int accountNo;        // unique account number
+     private String name;          // last name, first name
+
+             // constructor initializes all instance variables
+    public BankAccount(int acctNo, double bal, String nme) {
+               accountNo = acctNo;
+               balance  = bal;
+               name = nme;
+    }
+
+            // balance increases by this amount
+    public void makeDeposit(double amount) {
+                balance = balance + amount;
+     }
+
+           //  balance decreases by this amount
+    public void withDraw(double amount) {
+               balance = balance - amount;
+     }
+           
+           // returns this customer's balance
+    public double getBalance () {
+             return balance;
+    }
+
+           // displays this customer's info
+    public void display( ) {
+           String str = String.format("Account # %d, %s \n Balance %.2f", 
+                                       accountNo, name, balance);
+           JOptionPane.showMessageDialog(null, str);           
+    }
+
+}
